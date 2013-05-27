@@ -17,14 +17,25 @@
 
 //Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
 //fuzzy-match a number: is the number above or below a number within a certain percent? 
+
 //find the number of hours or days difference between two dates
-var myBirthday = new Date(1977, 03, 17); //April 17, 1977
+/*var myBirthday = new Date(1977, 03, 17); //April 17, 1977
 var todaysDate = new Date(2013, 04, 26); //May 26, 2013
 var elapsedTime = todaysDate - myBirthday; 
-//var myAge = elapsedTime.getFullYear(); 
-console.log(elapsedTime); 
+	//var myAge = elapsedTime.getFullYear(); 
+console.log(elapsedTime); */ 
+/*var myNewJob = new Date (2013, 05, 17); //June 17, 2013
+var todaysDate = new Date (2013, 04, 26); //May 26, 2013
+var elapsedTime = myNewJob - todaysDate; 
+var days = elapsedTime.getDays(); 
+console.log(elapsedTime);*/
 
 //given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
+var stringOne = "15 + 15"; 
+var stringTwo = "156243"; 
+console.log(eval(stringOne)); 
+console.log(eval(stringTwo.valueOf())); 
+
 
 //arrays
 
