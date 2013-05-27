@@ -111,8 +111,7 @@ console.log(evalString2("We are alive!"));
 //(1)find the smallest value in an array that is greater than a given number
 //function findNextValue (myNumbers, goalNumb) {}:
 
-//(2)find the total value of just the numbers in an array, even if some of the items are not numbers.
-//works EXCEPT it counts the string "15" as number 15.  
+//(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 function myTotalDogs(myDogs){
 	var myDogs = [12, "15", 13, "Lab", 18];
 	var total = 0
@@ -128,9 +127,16 @@ function myTotalDogs(myDogs){
 console.log(myTotalDogs()); 
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
-var items = ["réservé", "premier", "cliché", "communiqué", "café" ,"adieu"];
+//this sorts items in an array
+var items = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
 items.sort(function (a, b) {
-    return a.localeCompare(b);
-});
-// items is [ 'adieu', 'café', 'cliché', 'communiqué', 'premier', 'réservé' ]
+	return (a-b); 
+}); 
 console.log(items); 
+
+//this sorts an array of objects
+var items = [{a:2}, {a:3}, {b:14}, {a:1}, {b:1}, {a:15}]; 
+items.sort(function (a, b) {
+	return (a-b); 
+}); 
+console.log(items);
