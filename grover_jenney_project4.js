@@ -35,14 +35,30 @@ console.log(phonenumber(myPhoneNumber)); //myPhoneNumber.value.match not defined
 //(1) Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
 //works
 var costOfShoes = 15.98761;
-console.log(costOfShoes.toFixed(2)); 
+console.log(costOfShoes.toFixed(2) + " This is answer to Numbers Question 1. Try #1"); 
 function dollarAmount(amount, decimal) {
 	console.log(amount.toFixed(decimal)); 
+	return "This is answer to Numbers Question 1. Try #2"; 
 };
 console.log(dollarAmount(165.123563, 2)); 
-//QUESTION: Why do I always get an "undefined" after my function runs? 
+//QUESTION: Why do I always get an "undefined" after my function runs? Is it because I didn't return something? I added the return string and "undefined" disappeared. 
 
 //(2)fuzzy-match a number: is the number above or below a number within a certain percent? 
+var fuzzyMatchTrio = [2, 4, 50]; 
+function numberMatch(numb1, numb2, numb3) {
+	if (numb1 < numb2) {
+		var differance = numb2 - numb1; 
+		var percentage = numb1 / numb2; 
+		if (percentage <= numb3) {
+			console.log(true); 
+		} else {
+			console.log(false); 
+			}
+		} return "This is answer to Numbers Question 2.";
+};
+console.log(numberMatch(2, 4, .50));
+console.log(numberMatch(20, 25, .50));   
+
 
 //(3)find the number of hours or days difference between two dates
 /*var myBirthday = new Date(1977, 03, 17); //April 17, 1977
