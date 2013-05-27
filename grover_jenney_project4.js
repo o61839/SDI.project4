@@ -76,9 +76,23 @@ console.log(elapsedTime);*/
 //works
 var stringOne = "15 + 15"; 
 var stringTwo = "156243"; 
-console.log(eval(stringOne)); 
-console.log(eval(stringTwo.valueOf())); 
-
+console.log(eval(stringOne) + " This is the answer to Numbers Question 4. Try #1"); 
+console.log(eval(stringTwo.valueOf()) + " This is the answer to Numbers Question 4. Try #2"); 
+function evalString (stringThree) {
+	console.log(eval(stringThree)); 
+	return "This is the answer to Numbers Question 4 using a function"; 
+};
+function evalString2 (stringFour) {
+	if (isNaN(stringFour) == false) {
+		console.log(eval(stringFour)); 
+	} else {
+		console.log(isNaN(stringFour) + "ly this is not number."); 
+	}
+	return "This is the answer to Numbers Question 4 using a function & a conditional"; 
+};
+console.log(evalString("(25 + 5)/3")); 
+console.log(evalString2(54 + 45)); 
+console.log(evalString2("We are alive!")); 
 
 //arrays (3)
 
