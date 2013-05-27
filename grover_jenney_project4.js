@@ -33,6 +33,7 @@ console.log(phonenumber(myPhoneNumber)); //myPhoneNumber.value.match not defined
 //Numbers
 
 //Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
+//works
 var costOfShoes = 15.98761;
 console.log(costOfShoes.toFixed(2)); 
 
@@ -51,6 +52,7 @@ var days = elapsedTime.getDays();
 console.log(elapsedTime);*/
 
 //given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
+//works
 var stringOne = "15 + 15"; 
 var stringTwo = "156243"; 
 console.log(eval(stringOne)); 
@@ -61,6 +63,18 @@ console.log(eval(stringTwo.valueOf()));
 
 //find the smallest value in an array that is greater than a given number
 //find the total value of just the numbers in an array, even if some of the items are not numbers. 
+var total = 0;
+var myDogs = [12, "15px", 13, "21ab", 18];
+var myTotalDogs = function(myDogs){
+	for(var i = 0; i < myDogs.length; i++){
+ 		var thisVal = parseInt(myDogs[i]);
+ 		if(!isNaN(thisVal)){
+  			total = thisVal;
+ 		}
+ 	}
+}; 
+console.log(myTotalDogs); 
+
 //given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 var items = ["réservé", "premier", "cliché", "communiqué", "café" ,"adieu"];
 items.sort(function (a, b) {
