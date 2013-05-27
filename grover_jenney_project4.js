@@ -8,6 +8,23 @@
 //strings
 
 //Does a string follow a 123-456-7890 pattern like a phone number? 
+/*var myPhoneNumber = 605-350-6398
+function phonenumber(myPhoneNumber)  
+{  
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
+  if(myPhoneNumber.value.match(phoneno))  
+     {  
+       return true;         
+     }  
+   else  
+     {  
+       alert("Not a valid Phone Number");  
+       return false;  
+     }  
+}  
+console.log(phonenumber(myPhoneNumber)); //myPhoneNumber.value.match not defined???
+*/
+
 //Does a string follow an aaa@bbb.ccc pattern like an email address? 
 //Is the string a URL? (Does it start with http: or https:?
 //Title-case a string (split into words, then uppercase the first letter of each word. 
@@ -16,6 +33,9 @@
 //Numbers
 
 //Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
+var costOfShoes = 15.98761;
+console.log(costOfShoes.toFixed(2)); 
+
 //fuzzy-match a number: is the number above or below a number within a certain percent? 
 
 //find the number of hours or days difference between two dates
@@ -42,4 +62,9 @@ console.log(eval(stringTwo.valueOf()));
 //find the smallest value in an array that is greater than a given number
 //find the total value of just the numbers in an array, even if some of the items are not numbers. 
 //given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
-
+var items = ["réservé", "premier", "cliché", "communiqué", "café" ,"adieu"];
+items.sort(function (a, b) {
+    return a.localeCompare(b);
+});
+// items is [ 'adieu', 'café', 'cliché', 'communiqué', 'premier', 'réservé' ]
+console.log(items); 
