@@ -44,6 +44,7 @@ console.log(dollarAmount(165.123563, 2));
 //QUESTION: Why do I always get an "undefined" after my function runs? Is it because I didn't return something? I added the return string and "undefined" disappeared. 
 
 //(2)fuzzy-match a number: is the number above or below a number within a certain percent? 
+//works
 var fuzzyMatchTrio = [2, 4, 50]; 
 function numberMatch(numb1, numb2, numb3) {
 	if (numb1 < numb2) {
@@ -61,16 +62,27 @@ console.log(numberMatch(20, 25, .50));
 
 
 //(3)find the number of hours or days difference between two dates
-/*var myBirthday = new Date(1977, 03, 17); //April 17, 1977
+var myBirthday = new Date(1977, 03, 17); //April 17, 1977
 var todaysDate = new Date(2013, 04, 26); //May 26, 2013
-var elapsedTime = todaysDate - myBirthday; 
-	//var myAge = elapsedTime.getFullYear(); 
-console.log(elapsedTime); */ 
-/*var myNewJob = new Date (2013, 05, 17); //June 17, 2013
-var todaysDate = new Date (2013, 04, 26); //May 26, 2013
-var elapsedTime = myNewJob - todaysDate; 
-var days = elapsedTime.getDays(); 
-console.log(elapsedTime);*/
+function getAge(elapsedTime) {
+	var elapsedTime = todaysDate - myBirthday;
+	var millisecondsPerYear = 31536000000; 
+	var myAge = elapsedTime/millisecondsPerYear; 
+	console.log("I am " + myAge.toFixed(2) + " years old!"); 
+	return "This is the answer for Numbers Question 3 using a function. Try #1."
+}; 
+console.log(getAge()); 
+
+var myNewJob = new Date (2013, 05, 17); //June 17, 2013
+var todaysDate = new Date (2013, 04, 27); //May 27, 2013  
+function getDays(elapsedTime) {
+	var elapsedTime = myNewJob - todaysDate;
+	var millisecondsPerDay = 86400000; 
+	var daysToNewJob = elapsedTime/millisecondsPerDay; 
+	console.log("I have " + daysToNewJob.toFixed(2) + " days until my new job starts!"); 
+	return "This is the answer for Numbers Question 3 using a function. Try #2."
+}; 
+console.log(getDays());
 
 //(4)given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
 //works
