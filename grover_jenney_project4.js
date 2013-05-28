@@ -109,9 +109,26 @@ console.log(evalString2("We are alive!"));
 //arrays (3)
 
 //(1)find the smallest value in an array that is greater than a given number
+//works
 //function findNextValue (myNumbers, goalNumb) {}:
+var numberItems = [15, 25, 37, 26, 104, 8, 2]
+numberItems.sort(function (a, b) {
+	return (a-b); 
+}); 
+console.log(numberItems);
+console.log("this is the first part of the answer to question 1 Arrays");
+function getNextNumber(numberItems, value) {
+    for (var i=0; i < numberItems.length; i++)
+        if (numberItems[i] > value)
+            return numberItems[i];
+} 
+console.log(getNextNumber(numberItems, 36)); 
+//should return 37
+console.log("this is the answer to question 1 Arrays"); 
+
 
 //(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
+//QUESTION: This works but it also adds in "15" instead of leaving it as a string. Why? 
 function myTotalDogs(myDogs){
 	var myDogs = [12, "15", 13, "Lab", 18];
 	var total = 0
@@ -128,15 +145,20 @@ console.log(myTotalDogs());
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 //this sorts items in an array
+//this one works. 
 var items = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
 items.sort(function (a, b) {
 	return (a-b); 
 }); 
 console.log(items); 
+console.log("this is option 1 for question 3 of Arrays"); 
 
 //this sorts an array of objects
+//QUESTION: This works but does not sort correctly, what am I doing wrong???
 var items = [{a:2}, {a:3}, {b:14}, {a:1}, {b:1}, {a:15}]; 
 items.sort(function (a, b) {
 	return (a-b); 
 }); 
+//should be {a:1}, {a:2}, {a:3}, {a:15}, {b:1}, {b:14}
 console.log(items);
+console.log("this is option 2 for question 3 of Arrays"); 
