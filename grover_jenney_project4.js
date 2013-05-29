@@ -36,6 +36,33 @@ console.log(phonenumber("605-350-6398") + " This is the answer for Strings #1.")
 
 //(2) Does a string follow an aaa@bbb.ccc pattern like an email address? 
 
+function email(addy){
+	var startAddy	= 0 
+		startComp	= addy.indexOf("@") + 1,
+		startExten	= addy.indexOf(".") + 1,
+		symbolAt 	= addy.indexOf("@"),
+		symbolDot	= addy.indexOf("."),
+		emailName	= addy.substring(startAddy, symbolAt), 
+		emailComp	= addy.substring(startComp, symbolDot), 
+		emailExten	= addy.substring(startExten, addy.length)
+	;
+	if (emailName.length >= 1){
+		if (emailComp.length >= 1){
+			if (emailExten.length >= 2) {
+				if (symbolAt !== -1) {
+					if (symbolDot !== -1) {
+						return "true";
+					}
+				}
+			}
+		}
+	} else {
+		return "false";  
+	} return email; 
+}; 
+console.log(email("605-350-6398") + " This is the answer for Strings #2."); 
+console.log(email("jenjo@q.ca") + " This is the other answer for Strings #2."); 
+
 //(3) Is the string a URL? (Does it start with http: or https:?
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
