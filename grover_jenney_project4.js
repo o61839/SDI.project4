@@ -1,34 +1,47 @@
 //alert("JavaScript works!");
 
-//Jenney Grover
-//SDI 1305
-//Project 4
-//May 30, 2013
+/*	Jenney Grover
+	SDI 1305
+	Project 4
+	May 30, 2013
+*/
 
 //strings (5)
 
 //(1) Does a string follow a 123-456-7890 pattern like a phone number? 
-/*var myPhoneNumber = 605-350-6398
-function phonenumber(myPhoneNumber)  
-{  
-  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;  
-  if(myPhoneNumber.value.match(phoneno))  
-     {  
-       return true;         
-     }  
-   else  
-     {  
-       alert("Not a valid Phone Number");  
-       return false;  
-     }  
-}  
-console.log(phonenumber(myPhoneNumber)); //myPhoneNumber.value.match not defined???
-*/
+//works
+function phonenumber(myPhoneNumber) {   
+	var end 	= myPhoneNumber.indexOf("-"),  
+		end1 	= myPhoneNumber.lastIndexOf("-"), 
+		end2 	= myPhoneNumber.length,
+		start 	= 0,
+		start1	= myPhoneNumber.indexOf("-") + 1,
+		start2 	= myPhoneNumber.lastIndexOf("-") + 1,
+		setOne = myPhoneNumber.substring(start, end),
+		setTwo = myPhoneNumber.substring(start1, end1),
+		setThree = myPhoneNumber.substring(start2, end2)
+	; 
+	if (setOne.length == 3){
+		if (setTwo.length == 3){
+			if (setThree.length == 4) {
+				return "true";   
+			}
+		}
+	} else {
+		return "false";  
+	} return phonenumber; 
+}; 
+console.log(phonenumber("605-350-6398") + " This is the answer for Strings #1."); 
+
 
 //(2) Does a string follow an aaa@bbb.ccc pattern like an email address? 
+
 //(3) Is the string a URL? (Does it start with http: or https:?
+
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
+
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
+
 
 //Numbers (4)
 
@@ -62,8 +75,9 @@ console.log(numberMatch(20, 25, .50));
 
 
 //(3)find the number of hours or days difference between two dates
+//works
 var myBirthday = new Date(1977, 03, 17); //April 17, 1977
-var todaysDate = new Date(2013, 04, 26); //May 26, 2013
+var todaysDate = new Date(2013, 04, 30); //May 30, 2013
 function getAge(elapsedTime) {
 	var elapsedTime = todaysDate - myBirthday;
 	var millisecondsPerYear = 31536000000; 
@@ -74,7 +88,7 @@ function getAge(elapsedTime) {
 console.log(getAge()); 
 
 var myNewJob = new Date (2013, 05, 17); //June 17, 2013
-var todaysDate = new Date (2013, 04, 27); //May 27, 2013  
+var todaysDate = new Date (2013, 04, 30); //May 30, 2013  
 function getDays(elapsedTime) {
 	var elapsedTime = myNewJob - todaysDate;
 	var millisecondsPerDay = 86400000; 
@@ -145,12 +159,12 @@ console.log(myTotalDogs());
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 //this sorts items in an array
-//this one works. 
-var items = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
-items.sort(function (a, b) {
+//QUESTION: does not sort correctly. Why?  
+var itemsAnimals = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
+itemsAnimals.sort(function (a, b) {
 	return (a-b); 
 }); 
-console.log(items); 
+console.log(itemsAnimals); 
 console.log("this is option 1 for question 3 of Arrays"); 
 
 //this sorts an array of objects
