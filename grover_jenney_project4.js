@@ -35,7 +35,7 @@ console.log(phonenumber("605-350-6398") + " This is the answer for Strings #1.")
 
 
 //(2) Does a string follow an aaa@bbb.ccc pattern like an email address? 
-
+//works! 
 function email(addy){
 	var startAddy	= 0 
 		startComp	= addy.indexOf("@") + 1,
@@ -64,11 +64,32 @@ console.log(email("605-350-6398") + " This is the answer for Strings #2.");
 console.log(email("jenjo@q.ca") + " This is the other answer for Strings #2."); 
 
 //(3) Is the string a URL? (Does it start with http: or https:?
+//works
+function isThisURL (string){
+	var webBeginOne = string.substr(0, 7); 
+	var webBeginTwo = string.substr(0, 8); 
+	if (webBeginOne === "http://") {
+		return true; 
+	} else if (webBeginTwo === "https://" ){
+		return true; 
+	} else {
+		return false; 
+	}
+};
+console.log(isThisURL("http://www.yahoo.com") + " This is option 1 for question 3 in Strings.");
+console.log(isThisURL("https://www.capitalone.com") + " This is option 2 for question 3 in Strings.");
+console.log(isThisURL("google.com") + " This is option 3 for question 3 in Strings.");
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
 
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
-
+//works BUT...how to loops this? hmmm
+function findReplace(string, symbOne, symbTwo) {
+	var newString = string.replace(symbOne, symbTwo)
+	var newNewString = newString.replace(symbOne, symbTwo)
+	return newNewString; 
+};
+console.log(findReplace("apple,orange,banana", ",", "/") + " This is the answer for question 5 in Strings."); 
 
 //Numbers (4)
 
