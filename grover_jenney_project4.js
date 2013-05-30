@@ -72,12 +72,27 @@ var myLibrary = function(){
 		}
 	};
 
+	//Strings (4) Title-case a string (split into words, then uppercase the first letter of each word. 
+	var titleCase = function(quote){
+		var quoteWithTitleCase = [];  
+		var quoteString = quote.split(" "); 
+		
+		for (var i = 0; i < quoteString.length; i++) {
+			var wordList = quoteString[i].charAt(0);
+			var wordTitleCase = wordList.toUpperCase();
+			var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
+			quoteWithTitleCase.push(elementQuote);
+	};
+	
+		return quoteWithTitleCase.join(" ");
+};
 	
 	//return of the functions to be used outside of the library. 
 	return {
 		"checkPhoneNumber": checkPhoneNumber,
-		"checkEmail": checkEmail,
-		"isThisUrl": isThisUrl
+		"checkEmail": 		checkEmail,
+		"isThisUrl": 		isThisUrl, 
+		"titleCase": 		titleCase
 	}
 }; // end library
 
@@ -90,30 +105,12 @@ console.log("Is this an email? " + newLib.checkEmail("jenjo@q.ca"));
 console.log("Is this a URL? " + newLib.isThisUrl("http://www.yahoo.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("https://www.capitalone.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
+console.log("Does This Show Title Case? " + newLib.titleCase("I wish you the best!")); 
 
 //**********
 
 //strings (5)
- 
 
-
-
-//(4) Title-case a string (split into words, then uppercase the first letter of each word. 
-//works
-var titleCase = function(quote){
-	var quoteWithTitleCase = [];  
-	var quoteString = quote.split(" "); 
-	
-	for (var i = 0; i < quoteString.length; i++) {
-		var wordList = quoteString[i].charAt(0);
-		var wordTitleCase = wordList.toUpperCase();
-		var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
-		quoteWithTitleCase.push(elementQuote);
-	};
-	
-		return quoteWithTitleCase.join(" ");
-};
-console.log(titleCase("I wish you the best!") + " This is the answer to question 4 in Strings."); 
  
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
 //works BUT...how to loops this? hmmm
