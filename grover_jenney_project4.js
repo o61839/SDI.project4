@@ -83,20 +83,39 @@ console.log(isThisURL("google.com") + " This is option 3 for question 3 in Strin
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
 
-function titleCase(quote){
-	var quoteWithTitleCase = [];
-	var wordsQuote = [];  
-	var quoteString = quote.split(); 
-	for (i=0; i<quoteString.length; i++) {
+var titleCase = function(quote){
+	var quoteWithTitleCase = [];  
+	var quoteString = quote.split(" "); 
+	
+	for (var i = 0; i < quoteString.length; i++) {
 		var wordList = quoteString[i].charAt(0);
-		var wordTitleCase = wordList.toUpperCase;
+		var wordTitleCase = wordList.toUpperCase();
 		var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
-		quoteWithTitleCase[i].push(elementQuote);
-		return wordsQuote.join(" ");
+		quoteWithTitleCase.push(elementQuote);
 	};
+	
+		return quoteWithTitleCase.join(" ");
 };
 console.log(titleCase("I wish you the best!") + " This is the answer to question 4 in Strings."); 
 
+/*var titleCase = function(phrase) {
+    
+        var titleCaseWord = [];
+        var titleSplit = phrase.split(" ");
+
+        for (var i = 0; i < titleSplit.length; i++){
+            var capLetter = titleSplit[i].charAt(0);
+            var capitalLetter = capLetter.toUpperCase();
+            var lowLetter = titleSplit[i].slice(1)
+            var lowerLetters = lowLetter.toLowerCase();
+            titleCaseWord.push(capitalLetter + lowerLetters);
+        };
+
+        return titleCaseWord.join(" ")
+    
+};
+console.log(titleCase("I wish you the best!"));  
+*/   
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
 //works BUT...how to loops this? hmmm
 function findReplace(string, symbOne, symbTwo) {
