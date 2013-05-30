@@ -205,7 +205,23 @@ console.log("this is the answer to question 1 Arrays");
 
 
 //(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
-//QUESTION: This works but it also adds in "15" instead of leaving it as a string. Why? 
+//QUESTION: So I tried a new function. But now it is stopping when it hits the string. 
+function myTotalDogsOne(myDogs){
+	var myDogs = [12, "15", 13, "Lab", 18];
+	var total = 0 
+	for(var i = 0; i < myDogs.length; i++){
+ 		var thisAddition = parseInt(myDogs[i]);
+ 		if (!isNaN(thisAddition)) {
+ 				total += thisAddition; 
+ 		} else {
+ 			return "this is not a number"; 
+ 		}
+ 	}
+ 	return total; //it should only be 43
+ 	return "This is the answer to Arrays Question 2 using a function";
+}; 
+console.log(myTotalDogsOne()); 
+//QUESTION: This works but it also adds in "15" instead of leaving it as a string. Why?
 function myTotalDogs(myDogs){
 	var myDogs = [12, "15", 13, "Lab", 18];
 	var total = 0
