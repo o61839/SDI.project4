@@ -206,7 +206,7 @@ console.log("this is the answer to question 1 Arrays");
 
 //(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 //QUESTION: So I tried a new function. But now it is stopping when it hits the string. 
-function myTotalDogsOne(myDogs){
+/*function myTotalDogsOne(myDogs){
 	var myDogs = [12, "15", 13, "Lab", 18];
 	var total = 0 
 	for(var i = 0; i < myDogs.length; i++){
@@ -220,9 +220,21 @@ function myTotalDogsOne(myDogs){
  	return total; //it should only be 43
  	return "This is the answer to Arrays Question 2 using a function";
 }; 
-console.log(myTotalDogsOne()); 
+console.log(myTotalDogsOne()); */
 //QUESTION: This works but it also adds in "15" instead of leaving it as a string. Why?
-function myTotalDogs(myDogs){
+/*function myTotalDogs(myDogs){
+	var total = 0
+	for(var i = 0; i < myDogs.length; i++){
+ 		if(myDogs[i].type = "Number"){
+  			total += myDogs.valueOf();
+ 		}
+ 	} return total 
+ 	console.log(total); //it should only be 43
+ 	return "This is the answer to Arrays Question 2 using a function";
+}; 
+console.log(myTotalDogs([12, "15", 13, "Lab", 18])); */
+
+/*function myTotalDogs(myDogs){
 	var myDogs = [12, "15", 13, "Lab", 18];
 	var total = 0
 	for(var i = 0; i < myDogs.length; i++){
@@ -234,11 +246,24 @@ function myTotalDogs(myDogs){
  	console.log(total); //it should only be 43
  	return "This is the answer to Arrays Question 2 using a function";
 }; 
+console.log(myTotalDogs());*/
+
+
+function myTotalDogs(myDogs){
+	var myDogs = [12, "15", 13, "Lab", 18];
+	var total = 0
+	for(var i = 0; i < myDogs.length; i++){
+ 		if(!isNaN(myDogs[i]) && (typeof myDogs[i] != "string")) {//I did get help with my syntax for the typeof. It didn't work for me yesterday. 
+  			total += myDogs[i];
+ 		}
+ 	}
+ 	console.log(total); //it should only be 43
+ 	return "This is the answer to Arrays Question 2 using a function";
+}; 
 console.log(myTotalDogs()); 
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
-//this sorts items in an array
-//QUESTION: works not in a function. BUT if I put it in a function it doesn't work. Why?  
+//this sorts items in an array  
 var itemsAnimals = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
 itemsAnimals.sort(); 
 /*itemsAnimals.sort(function (a, b) {
