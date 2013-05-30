@@ -1,81 +1,66 @@
 //alert("JavaScript works!");
 
-/*	Jenney Grover
-	SDI 1305
-	Project 4
-	May 30, 2013
-	Library of Functions
+/*	This is my original file that has all working functions. And other examples. 
 */
 
-var myLibrary = function(){
-	
-	//Strings (1) Does a string follow a 123-456-7890 pattern like a phone number? 
-	var checkPhoneNumber = function (myPhoneNumber){   
-		var end 	= myPhoneNumber.indexOf("-"),  
-			end1 	= myPhoneNumber.lastIndexOf("-"), 
-			end2 	= myPhoneNumber.length,
-			start 	= 0,
-			start1	= myPhoneNumber.indexOf("-") + 1,
-			start2 	= myPhoneNumber.lastIndexOf("-") + 1,
-			setOne = myPhoneNumber.substring(start, end),
-			setTwo = myPhoneNumber.substring(start1, end1),
-			setThree = myPhoneNumber.substring(start2, end2)
-		; 
-		if (setOne.length == 3){
-			if (setTwo.length == 3){
-				if (setThree.length == 4) {
+//strings (5)
+
+//(1) Does a string follow a 123-456-7890 pattern like a phone number? 
+//works
+function phonenumber(myPhoneNumber) {   
+	var end 	= myPhoneNumber.indexOf("-"),  
+		end1 	= myPhoneNumber.lastIndexOf("-"), 
+		end2 	= myPhoneNumber.length,
+		start 	= 0,
+		start1	= myPhoneNumber.indexOf("-") + 1,
+		start2 	= myPhoneNumber.lastIndexOf("-") + 1,
+		setOne = myPhoneNumber.substring(start, end),
+		setTwo = myPhoneNumber.substring(start1, end1),
+		setThree = myPhoneNumber.substring(start2, end2)
+	; 
+	if (setOne.length == 3){
+		if (setTwo.length == 3){
+			if (setThree.length == 4) {
 				return true;   
-				}
 			}
-		} else {
-				return false;  
-		} return checkPhoneNumber; 
-	}; //end Strings (1)
-	
-	//Strings (2) Does a string follow an aaa@bbb.ccc pattern like an email address?
-	var checkEmail = function (addy){
-		var startAddy	= 0 
-			startComp	= addy.indexOf("@") + 1,
-			startExten	= addy.indexOf(".") + 1,
-			symbolAt 	= addy.indexOf("@"),
-			symbolDot	= addy.indexOf("."),
-			emailName	= addy.substring(startAddy, symbolAt), 
-			emailComp	= addy.substring(startComp, symbolDot), 
-			emailExten	= addy.substring(startExten, addy.length)
-		;
-		
-		if (emailName.length >= 1){
-			if (emailComp.length >= 1){
-				if (emailExten.length >= 2) {
-					if (symbolAt !== -1) {
-						if (symbolDot !== -1) {
-							return true;
-						}
+		}
+	} else {
+		return false;  
+	} return phonenumber; 
+}; 
+console.log(phonenumber("605-350-6398") + " This is the answer for Strings #1."); 
+console.log(phonenumber("6184-444-1212") + " This is the other answer for Strings #1.");
+
+
+//(2) Does a string follow an aaa@bbb.ccc pattern like an email address? 
+//works! 
+function email(addy){
+	var startAddy	= 0 
+		startComp	= addy.indexOf("@") + 1,
+		startExten	= addy.indexOf(".") + 1,
+		symbolAt 	= addy.indexOf("@"),
+		symbolDot	= addy.indexOf("."),
+		emailName	= addy.substring(startAddy, symbolAt), 
+		emailComp	= addy.substring(startComp, symbolDot), 
+		emailExten	= addy.substring(startExten, addy.length)
+	;
+	if (emailName.length >= 1){
+		if (emailComp.length >= 1){
+			if (emailExten.length >= 2) {
+				if (symbolAt !== -1) {
+					if (symbolDot !== -1) {
+						return true;
 					}
 				}
 			}
-		} else {
-			return false;  
-		} return checkEmail; 
-	};//end Strings (2)
+		}
+	} else {
+		return false;  
+	} return email; 
+}; 
+console.log(email("605-350-6398") + " This is the answer for Strings #2."); 
+console.log(email("jenjo@q.ca") + " This is the other answer for Strings #2."); 
 
-	return {
-		"checkPhoneNumber": checkPhoneNumber,
-		"checkEmail": checkEmail
-	}
-}; // end library
-
-// main code
-var newLib = new myLibrary(); 
-console.log("Is this a phone number? " + newLib.checkPhoneNumber("605-350-6398")); 
-console.log("Is this a phone number? " + newLib.checkPhoneNumber("6184-444-1212"));
-console.log("Is this an email? " + newLib.checkEmail("605-350-6398")); 
-console.log("Is this an email? " + newLib.checkEmail("jenjo@q.ca"));
-
-//**********
-
-//strings (5)
- 
 //(3) Is the string a URL? (Does it start with http: or https:?
 //works
 function isThisURL (string){
