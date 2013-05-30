@@ -29,7 +29,7 @@ var myLibrary = function(){
 			}
 		} else {
 				return false;  
-		} return checkPhoneNumber; 
+		}; 
 	}; //end Strings (1)
 	
 	//Strings (2) Does a string follow an aaa@bbb.ccc pattern like an email address?
@@ -56,7 +56,7 @@ var myLibrary = function(){
 			}
 		} else {
 			return false;  
-		} return checkEmail; 
+		}; 
 	};//end Strings (2)
 	
 	//Strings (3) Is the string a URL? (Does it start with http: or https:?
@@ -82,17 +82,26 @@ var myLibrary = function(){
 			var wordTitleCase = wordList.toUpperCase();
 			var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
 			quoteWithTitleCase.push(elementQuote);
-	};
+		};
 	
 		return quoteWithTitleCase.join(" ");
-};
+	};
+	
+	//Strings (5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
+	//works BUT...how to loops this? hmmm
+	var findReplace = function (string, symbOne, symbTwo) {	
+		var newString = string.replace(symbOne, symbTwo)
+		var newNewString = newString.replace(symbOne, symbTwo)
+		return newNewString; 
+	};
 	
 	//return of the functions to be used outside of the library. 
 	return {
 		"checkPhoneNumber": checkPhoneNumber,
 		"checkEmail": 		checkEmail,
 		"isThisUrl": 		isThisUrl, 
-		"titleCase": 		titleCase
+		"titleCase": 		titleCase, 
+		"findReplace":		findReplace
 	}
 }; // end library
 
@@ -106,20 +115,9 @@ console.log("Is this a URL? " + newLib.isThisUrl("http://www.yahoo.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("https://www.capitalone.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
 console.log("Does This Show Title Case? " + newLib.titleCase("I wish you the best!")); 
-
+console.log("Did this replace the connectors? " + newLib.findReplace("apple,orange,banana", ",", "/"));
 //**********
 
-//strings (5)
-
- 
-//(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
-//works BUT...how to loops this? hmmm
-function findReplace(string, symbOne, symbTwo) {
-	var newString = string.replace(symbOne, symbTwo)
-	var newNewString = newString.replace(symbOne, symbTwo)
-	return newNewString; 
-};
-console.log(findReplace("apple,orange,banana", ",", "/") + " This is the answer for question 5 in Strings."); 
 
 //Numbers (4)
 
