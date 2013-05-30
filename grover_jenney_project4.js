@@ -82,7 +82,7 @@ console.log(isThisURL("https://www.capitalone.com") + " This is option 2 for que
 console.log(isThisURL("google.com") + " This is option 3 for question 3 in Strings.");
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
-
+//works
 var titleCase = function(quote){
 	var quoteWithTitleCase = [];  
 	var quoteString = quote.split(" "); 
@@ -97,25 +97,7 @@ var titleCase = function(quote){
 		return quoteWithTitleCase.join(" ");
 };
 console.log(titleCase("I wish you the best!") + " This is the answer to question 4 in Strings."); 
-
-/*var titleCase = function(phrase) {
-    
-        var titleCaseWord = [];
-        var titleSplit = phrase.split(" ");
-
-        for (var i = 0; i < titleSplit.length; i++){
-            var capLetter = titleSplit[i].charAt(0);
-            var capitalLetter = capLetter.toUpperCase();
-            var lowLetter = titleSplit[i].slice(1)
-            var lowerLetters = lowLetter.toLowerCase();
-            titleCaseWord.push(capitalLetter + lowerLetters);
-        };
-
-        return titleCaseWord.join(" ")
-    
-};
-console.log(titleCase("I wish you the best!"));  
-*/   
+ 
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
 //works BUT...how to loops this? hmmm
 function findReplace(string, symbOne, symbTwo) {
