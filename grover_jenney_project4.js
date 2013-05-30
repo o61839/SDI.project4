@@ -24,14 +24,15 @@ function phonenumber(myPhoneNumber) {
 	if (setOne.length == 3){
 		if (setTwo.length == 3){
 			if (setThree.length == 4) {
-				return "true";   
+				return true;   
 			}
 		}
 	} else {
-		return "false";  
+		return false;  
 	} return phonenumber; 
 }; 
 console.log(phonenumber("605-350-6398") + " This is the answer for Strings #1."); 
+console.log(phonenumber("6184-444-1212") + " This is the other answer for Strings #1.");
 
 
 //(2) Does a string follow an aaa@bbb.ccc pattern like an email address? 
@@ -51,13 +52,13 @@ function email(addy){
 			if (emailExten.length >= 2) {
 				if (symbolAt !== -1) {
 					if (symbolDot !== -1) {
-						return "true";
+						return true;
 					}
 				}
 			}
 		}
 	} else {
-		return "false";  
+		return false;  
 	} return email; 
 }; 
 console.log(email("605-350-6398") + " This is the answer for Strings #2."); 
@@ -82,6 +83,20 @@ console.log(isThisURL("google.com") + " This is option 3 for question 3 in Strin
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
 
+function titleCase(quote){
+	var quoteWithTitleCase = [];
+	var wordsQuote = [];  
+	var quoteString = quote.split(); 
+	for (i=0; i<quoteString.length; i++) {
+		var wordList = quoteString[i].charAt(0);
+		var wordTitleCase = wordList.toUpperCase;
+		var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
+		quoteWithTitleCase[i].push(elementQuote);
+		return wordsQuote.join(" ");
+	};
+};
+console.log(titleCase("I wish you the best!") + " This is the answer to question 4 in Strings."); 
+
 //(5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
 //works BUT...how to loops this? hmmm
 function findReplace(string, symbOne, symbTwo) {
@@ -102,7 +117,6 @@ function dollarAmount(amount, decimal) {
 	return "This is answer to Numbers Question 1. Try #2"; 
 };
 console.log(dollarAmount(165.123563, 2)); 
-//QUESTION: Why do I always get an "undefined" after my function runs? Is it because I didn't return something? I added the return string and "undefined" disappeared. 
 
 //(2)fuzzy-match a number: is the number above or below a number within a certain percent? 
 //works
