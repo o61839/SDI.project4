@@ -238,20 +238,40 @@ console.log(myTotalDogs());
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 //this sorts items in an array
-//QUESTION: does not sort correctly. Why?  
+//QUESTION: works not in a function. BUT if I put it in a function it doesn't work. Why?  
 var itemsAnimals = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
-itemsAnimals.sort(function (a, b) {
+itemsAnimals.sort(); 
+/*itemsAnimals.sort(function (a, b) {
 	return (a-b); 
-}); 
+}); */
+/*function sortAnimals(itemsAnimals) {
+ 	var animalsList = itemsAnimals.sort(); 
+ 	return animalsList; 
+};
+console.log(sortAnimals("dogs", "cats", "apples", "horses", "skinks", "pigs")); */
 console.log(itemsAnimals); 
 console.log("this is option 1 for question 3 of Arrays"); 
+//the above is not a function. below is a function but it doesn't sort. 
+var itemsOnTable = function (items, sortKey) {
+	var sortItems = items
+	sortItems.sort(function(a, b){
+	return a[sortKey]-b[sortKey];
+	});
+	return sortItems
+};
+console.log(itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
+
 
 //this sorts an array of objects
-//QUESTION: This works but does not sort correctly, what am I doing wrong???
-var items = [{a:2}, {a:3}, {b:14}, {a:1}, {b:1}, {a:15}]; 
-items.sort(function (a, b) {
-	return (a-b); 
-}); 
-//should be {a:1}, {a:2}, {a:3}, {a:15}, {b:1}, {b:14}
-console.log(items);
+var sortArray = function (inputItems, sortKey) {
+	var itemsSort = inputItems
+	
+	itemsSort.sort(function(a, b) {
+		return a[sortKey] - b[sortKey];
+	});
+	return itemsSort
+};
+
+//should be {a:1}, {a:2}, {a:3}, {a:14}, {a:15}, {a:100}
+console.log(sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
 console.log("this is option 2 for question 3 of Arrays"); 
