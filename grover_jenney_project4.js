@@ -58,10 +58,26 @@ var myLibrary = function(){
 			return false;  
 		} return checkEmail; 
 	};//end Strings (2)
+	
+	//Strings (3) Is the string a URL? (Does it start with http: or https:?
+	var isThisUrl = function (string){
+		var webBeginOne = string.substr(0, 7); 
+		var webBeginTwo = string.substr(0, 8); 
+		if (webBeginOne === "http://") {
+			return true; 
+		} else if (webBeginTwo === "https://" ){
+			return true; 
+		} else {
+			return false; 
+		}
+	};
 
+	
+	//return of the functions to be used outside of the library. 
 	return {
 		"checkPhoneNumber": checkPhoneNumber,
-		"checkEmail": checkEmail
+		"checkEmail": checkEmail,
+		"isThisUrl": isThisUrl
 	}
 }; // end library
 
@@ -71,27 +87,16 @@ console.log("Is this a phone number? " + newLib.checkPhoneNumber("605-350-6398")
 console.log("Is this a phone number? " + newLib.checkPhoneNumber("6184-444-1212"));
 console.log("Is this an email? " + newLib.checkEmail("605-350-6398")); 
 console.log("Is this an email? " + newLib.checkEmail("jenjo@q.ca"));
+console.log("Is this a URL? " + newLib.isThisUrl("http://www.yahoo.com"));
+console.log("Is this a URL? " + newLib.isThisUrl("https://www.capitalone.com"));
+console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
 
 //**********
 
 //strings (5)
  
-//(3) Is the string a URL? (Does it start with http: or https:?
-//works
-function isThisURL (string){
-	var webBeginOne = string.substr(0, 7); 
-	var webBeginTwo = string.substr(0, 8); 
-	if (webBeginOne === "http://") {
-		return true; 
-	} else if (webBeginTwo === "https://" ){
-		return true; 
-	} else {
-		return false; 
-	}
-};
-console.log(isThisURL("http://www.yahoo.com") + " This is option 1 for question 3 in Strings.");
-console.log(isThisURL("https://www.capitalone.com") + " This is option 2 for question 3 in Strings.");
-console.log(isThisURL("google.com") + " This is option 3 for question 3 in Strings.");
+
+
 
 //(4) Title-case a string (split into words, then uppercase the first letter of each word. 
 //works
