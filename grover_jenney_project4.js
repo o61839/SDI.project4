@@ -88,11 +88,14 @@ var myLibrary = function(){
 	};
 	
 	//Strings (5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
-	//works BUT...how to loops this? hmmm
+	//works BUT...how to loops this? hmmm -- okay now I put in a loop, but it stops after the first one. It doesn't keep looping. 
 	var findReplace = function (string, symbOne, symbTwo) {	
-		var newString = string.replace(symbOne, symbTwo)
-		var newNewString = newString.replace(symbOne, symbTwo)
-		return newNewString; 
+		for (i=0; i<string.length; i++){
+			var newString = string.replace(symbOne, symbTwo); 
+		};
+		//var newString = string.replace(symbOne, symbTwo)
+		//var newNewString = newString.replace(symbOne, symbTwo)
+		return newString; 
 	};
 	
 	//return of the functions to be used outside of the library. 
@@ -116,6 +119,7 @@ console.log("Is this a URL? " + newLib.isThisUrl("https://www.capitalone.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
 console.log("Does This Show Title Case? " + newLib.titleCase("I wish you the best!")); 
 console.log("Did this replace the connectors? " + newLib.findReplace("apple,orange,banana", ",", "/"));
+
 //**********
 
 
