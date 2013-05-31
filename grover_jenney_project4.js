@@ -119,15 +119,22 @@ var myLibrary = function(){
 	};
 	
 	//Numbers (3)find the number of hours or days difference between two dates
+	//years - past
 	var getYear = function (datePast, todaysDate) {
-		var dateInPast = new Date(datePast); 
-		var dateCurrent = new Date(todaysDate); 
-		var elapsedTime = dateCurrent - dateInPast;
+		var elapsedTime = todaysDate - datePast;
 		var millisecondsPerYear = 31536000000; 
 		var thisYear = elapsedTime/millisecondsPerYear; 
 		var years = thisYear.toFixed(2); 
 		return years;
 	}; 
+	//days - future
+	var getDays = function (futureDate, currentDate) {
+		var elapsedTime = futureDate - currentDate;
+		var millisecondsPerDay = 86400000; 
+		var daysToNewJob = elapsedTime/millisecondsPerDay; 
+		var futureDays = Math.ceil(daysToNewJob); 
+		return futureDays;
+}; 
 	
 	//return of the functions to be used outside of the library. 
 	return {
@@ -138,7 +145,8 @@ var myLibrary = function(){
 		"findReplace":		findReplace,
 		"changeDecimal":	changeDecimal,
 		"numberMatch":		numberMatch,
-		"getYear":			getYear
+		"getYear":			getYear,
+		"getDays":			getDays
 	}
 }; // end library
 
@@ -156,24 +164,14 @@ console.log("Did this replace the connectors? " + newLib.findReplace("apple,oran
 console.log("This should have two decimal places " + newLib.changeDecimal(165.123563, 2) + ".");
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(2, 4, .50));
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(20, 25, .50)); 
-console.log("How many years has it been? " + newLib.getYear((1977, 03, 17), (2013, 04, 30)));
-
+console.log("How many years has it been? " + newLib.getYear(new Date(1977, 03, 17), new Date(2013, 04, 30)) + " years.");
+console.log("How many years has it been? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
 
 //**********
 
 
 //Numbers (4)
 
-var myNewJob = new Date (2013, 05, 17); //June 17, 2013
-var todaysDate = new Date (2013, 04, 30); //May 30, 2013  
-function getDays(elapsedTime) {
-	var elapsedTime = myNewJob - todaysDate;
-	var millisecondsPerDay = 86400000; 
-	var daysToNewJob = elapsedTime/millisecondsPerDay; 
-	console.log("I have " + daysToNewJob.toFixed(2) + " days until my new job starts!"); 
-	return "This is the answer for Numbers Question 3 using a function. Try #2."
-}; 
-console.log(getDays());
 
 //(4)given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
 //works
