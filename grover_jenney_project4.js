@@ -88,14 +88,15 @@ var myLibrary = function(){
 	};
 	
 	//Strings (5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
-	//works BUT...how to loops this? hmmm -- okay now I put in a loop, but it stops after the first one. It doesn't keep looping. 
-	var findReplace = function (string, symbOne, symbTwo) {	
-		for (i=0; i<string.length; i++){
-			var newString = string.replace(symbOne, symbTwo); 
-		};
-		//var newString = string.replace(symbOne, symbTwo)
-		//var newNewString = newString.replace(symbOne, symbTwo)
-		return newString; 
+	//works BUT...how to loops this? 
+	//hmmm -- okay now I put in a loop, but it stops after the first one. 
+	//It doesn't keep looping. Thank you for the email suggestion of placing the return differently. 
+	//However that didn't work either. 
+	//you can see the other tries in the other .js file
+	var findReplace = function(string, symbOne, symbTwo) {
+		var newString = string.replace(symbOne, symbTwo)
+		var newNewString = newString.replace(symbOne, symbTwo)
+		return newNewString; 
 	};
 	
 	//return of the functions to be used outside of the library. 

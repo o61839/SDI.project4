@@ -104,6 +104,16 @@ function findReplace(string, symbOne, symbTwo) {
 };
 console.log(findReplace("apple,orange,banana", ",", "/") + " This is the answer for question 5 in Strings."); 
 
+// trial again - still not working. 
+var findReplace = function (string, symbOne, symbTwo) {	
+		var newString = [];
+		for (i=0; i<string.length; i++){
+			var newString[i].push(string.replace(symbOne, symbTwo)); 
+		};return newString; 
+		//var newString = string.replace(symbOne, symbTwo)
+		//var newNewString = newString.replace(symbOne, symbTwo)
+	}; 
+	
 //Numbers (4)
 
 //(1) Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
