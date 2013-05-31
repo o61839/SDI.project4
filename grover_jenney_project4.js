@@ -141,7 +141,7 @@ var myLibrary = function(){
 		if (isNaN(stringFour) === false) {
 			var number = eval(stringFour); 
 		} else {
-			var number = NaN; 
+			var number = "This is not a number. Please try again."; 
 		}
 		return number;  
 	};
@@ -171,7 +171,8 @@ var myLibrary = function(){
 	}; 
 	
 	//arrays (3) given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
-	//this sorts items in an array  
+	//this sorts items in an array 
+	//DOESN"T WOrk
 	var itemsOnTable = function (items, sortKey) {
 		var sortItems = items
 		sortItems.sort(function(a, b){
@@ -183,6 +184,7 @@ var myLibrary = function(){
 	//this sorts an array of objects
 	var sortArray = function (inputItems, sortKey) {
 		var itemsSort = inputItems
+	
 		itemsSort.sort(function(a, b) {
 			return a[sortKey] - b[sortKey];
 		});
@@ -231,5 +233,5 @@ console.log("What number is this? " + newLib.evalString("We are alive!"));
 console.log("What is the total of this array? " + newLib.totalArray([12, "15", 13, "Lab", 18]));
 console.log("Is this sorted? " + newLib.itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
 //should be {a:1}, {a:2}, {a:3}, {a:14}, {a:15}, {a:100}
-console.log("Is this sorted? " + newLib.sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
+console.log(newLib.sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
  
