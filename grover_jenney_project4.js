@@ -147,18 +147,13 @@ var myLibrary = function(){
 	};
 	
 	//Arrays (1) find the smallest value in an array that is greater than a given number
-	//DOESN"T WORK
-	/*var nextNumber = function (numberItems, value){
-		var sortedItems = numberItems.sort(function (a, b) {
-			return (a-b); 
-		});
-		function getNextNumber(sortedItems, value) {
-    		for (var i=0; i < numberItems.length; i++)
-        		if (numberItems[i] > value)
-            		var nextHighest = numberItems[i];
-				} 
-		} return nextHighest;
-	}*/
+	var nextNumber = function (sortedItems, value) {
+		var values = []
+		for (var i=0; i < sortedItems.length; i++)
+			if (sortedItems[i] > value) {
+				values.push(sortedItems[i])
+			} return values;
+	};
 	
 	//Arrays (2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 	var totalArray = function myTotalDogs(myDogs){
@@ -203,7 +198,7 @@ var myLibrary = function(){
 		"getYear":			getYear,
 		"getDays":			getDays, 
 		"evalString":		evalString,
-		//"nextNumber":		nextNumber,
+		"nextNumber":		nextNumber,
 		"totalArray":		totalArray,
 		"itemsOnTable":		itemsOnTable,
 		"sortArray":		sortArray
@@ -228,22 +223,8 @@ console.log("How many years has it been? " + newLib.getYear(new Date(1977, 03, 1
 console.log("How many days until? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
 console.log("What number is this? " + newLib.evalString("15"));
 console.log("What number is this? " + newLib.evalString("We are alive!"));
-//console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
+console.log("What number is next in line? " + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
 console.log("What is the total of this array? " + newLib.totalArray([12, "15", 13, "Lab", 18]));
-console.log("Is this sorted? " + newLib.itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
+//console.log("Is this sorted? " + newLib.itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
 console.log(newLib.sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
  
-var numberItems = [15, 25, 37, 26, 104, 8, 2]
-numberItems.sort(function (a, b) {
-	return (a-b); 
-});
-console.log(numberItems);
-console.log("this is the first part of the answer to question 1 Arrays");
-function getNextNumber(numberItems, value) {
-    for (var i=0; i < numberItems.length; i++)
-        if (numberItems[i] > value)
-            return numberItems[i];
-} 
-console.log(getNextNumber(numberItems, 36)); 
-//should return 37
-console.log("this is the answer to question 1 Arrays");
