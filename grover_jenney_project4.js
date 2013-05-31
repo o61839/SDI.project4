@@ -147,7 +147,8 @@ var myLibrary = function(){
 	};
 	
 	//Arrays (1) find the smallest value in an array that is greater than a given number
-	var nextNumber = function (numberItems, value){
+	//DOESN"T WORK
+	/*var nextNumber = function (numberItems, value){
 		var sortedItems = numberItems.sort(function (a, b) {
 			return (a-b); 
 		});
@@ -157,8 +158,18 @@ var myLibrary = function(){
             		return numberItems[i];
 				} return numberItems[i];
 		} return numberItems[i];
-	};
+	};*/
 	
+	//Arrays (2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
+	var totalArray = function myTotalDogs(myDogs){
+		var total = 0
+		for(var i = 0; i < myDogs.length; i++){
+ 			if(typeof myDogs[i] != "string") {//I did get help with my syntax for the typeof. It didn't work for me yesterday. 
+  			total += myDogs[i];
+ 			}
+ 		} return total;
+	}; 
+
 	//return of the functions to be used outside of the library. 
 	return {
 		"checkPhoneNumber": checkPhoneNumber,
@@ -171,7 +182,8 @@ var myLibrary = function(){
 		"getYear":			getYear,
 		"getDays":			getDays, 
 		"evalString":		evalString,
-		"nextNumber":		nextNumber
+		//"nextNumber":		nextNumber,
+		"totalArray":		totalArray
 	}
 }; // end library
 
@@ -193,70 +205,13 @@ console.log("How many years has it been? " + newLib.getYear(new Date(1977, 03, 1
 console.log("How many days until? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
 console.log("What number is this? " + newLib.evalString("15"));
 console.log("What number is this? " + newLib.evalString("We are alive!"));
-console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
+//console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
+console.log("What is the total of this array? " + newLib.totalArray([12, "15", 13, "Lab", 18]));
 //**********
 
 
 
-//arrays (3)
-
-//(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
-//QUESTION: So I tried a new function. But now it is stopping when it hits the string. 
-/*function myTotalDogsOne(myDogs){
-	var myDogs = [12, "15", 13, "Lab", 18];
-	var total = 0 
-	for(var i = 0; i < myDogs.length; i++){
- 		var thisAddition = parseInt(myDogs[i]);
- 		if (!isNaN(thisAddition)) {
- 				total += thisAddition; 
- 		} else {
- 			return "this is not a number"; 
- 		}
- 	}
- 	return total; //it should only be 43
- 	return "This is the answer to Arrays Question 2 using a function";
-}; 
-console.log(myTotalDogsOne()); */
-//QUESTION: This works but it also adds in "15" instead of leaving it as a string. Why?
-/*function myTotalDogs(myDogs){
-	var total = 0
-	for(var i = 0; i < myDogs.length; i++){
- 		if(myDogs[i].type = "Number"){
-  			total += myDogs.valueOf();
- 		}
- 	} return total 
- 	console.log(total); //it should only be 43
- 	return "This is the answer to Arrays Question 2 using a function";
-}; 
-console.log(myTotalDogs([12, "15", 13, "Lab", 18])); */
-
-/*function myTotalDogs(myDogs){
-	var myDogs = [12, "15", 13, "Lab", 18];
-	var total = 0
-	for(var i = 0; i < myDogs.length; i++){
- 		var thisAddition = parseInt(myDogs[i]);
- 		if(!isNaN(thisAddition)){
-  			total += thisAddition;
- 		}
- 	}
- 	console.log(total); //it should only be 43
- 	return "This is the answer to Arrays Question 2 using a function";
-}; 
-console.log(myTotalDogs());*/
-
-
-function myTotalDogs(myDogs){
-	var myDogs = [12, "15", 13, "Lab", 18];
-	var total = 0
-	for(var i = 0; i < myDogs.length; i++){
- 		if(typeof myDogs[i] != "string") {//I did get help with my syntax for the typeof. It didn't work for me yesterday. 
-  			total += myDogs[i];
- 		}
- 	}
- 	console.log(total); //it should only be 43
- 	return "This is the answer to Arrays Question 2 using a function";
-}; 
-console.log(myTotalDogs()); 
+//arrays (3) 
 
 //(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 //this sorts items in an array  
