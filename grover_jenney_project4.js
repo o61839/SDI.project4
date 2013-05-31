@@ -191,7 +191,7 @@ var myLibrary = function(){
 
 
 	//return of the functions to be used outside of the library. 
-	return {
+	return { //MAKE UP Project 3 JSON
 		"checkPhoneNumber": checkPhoneNumber,
 		"checkEmail": 		checkEmail,
 		"isThisUrl": 		isThisUrl, 
