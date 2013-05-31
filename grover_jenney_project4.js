@@ -19,7 +19,7 @@ var myLibrary = function(){
 			start2 	= myPhoneNumber.lastIndexOf("-") + 1,
 			setOne = myPhoneNumber.substring(start, end),
 			setTwo = myPhoneNumber.substring(start1, end1),
-			setThree = myPhoneNumber.substring(start2, end2)
+			setThree = myPhoneNumber.substring(start2, end2) // MAKE UP: Project 2 variable names descriptive
 		; 
 		if (setOne.length == 3){
 			if (setTwo.length == 3){
@@ -63,13 +63,13 @@ var myLibrary = function(){
 	var isThisUrl = function (string){
 		var webBeginOne = string.substr(0, 7); 
 		var webBeginTwo = string.substr(0, 8); 
-		if (webBeginOne === "http://") {
+		if (webBeginOne === "http://") { // MAKE UP: project 1 string conditionals. 
 			return true; 
 		} else if (webBeginTwo === "https://" ){
 			return true; 
 		} else {
 			return false; 
-		}
+		}//MAKE UP: Project 2 Boolean Logic
 	};
 
 	//Strings (4) Title-case a string (split into words, then uppercase the first letter of each word. 
@@ -79,7 +79,7 @@ var myLibrary = function(){
 		
 		for (var i = 0; i < quoteString.length; i++) {
 			var wordList = quoteString[i].charAt(0);
-			var wordTitleCase = wordList.toUpperCase();
+			var wordTitleCase = wordList.toUpperCase(); //MAKE UP: Project 2 array method
 			var elementQuote = quoteString[i].replace(wordList, wordTitleCase);
 			quoteWithTitleCase.push(elementQuote);
 		};
@@ -134,7 +134,7 @@ var myLibrary = function(){
 		var daysToNewJob = elapsedTime/millisecondsPerDay; 
 		var futureDays = Math.ceil(daysToNewJob); 
 		return futureDays;
-	}; 
+	}; //MAKE UP: Project 3 coding/encapsulation, coding/logic
 
 	//Numbers (4) given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
 	var evalString = function(stringFour) {
@@ -186,7 +186,7 @@ var myLibrary = function(){
 		itemsSort.sort(function(a, b) {
 			return a[sortKey] - b[sortKey];
 		});
-		return itemsSort
+		return itemsSort //MAKE UP: Project 3 return object and argument object
 	};
 
 
