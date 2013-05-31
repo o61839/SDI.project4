@@ -84,7 +84,7 @@ var myLibrary = function(){
 			quoteWithTitleCase.push(elementQuote);
 		};
 	
-		return quoteWithTitleCase.join(" ");
+		return quoteWithTitleCase.join(" "); //MAKE UP: project 3 procedure. 
 	};
 	
 	//Strings (5) Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a, b, c" + "," + "/" -> "a/b/c"
