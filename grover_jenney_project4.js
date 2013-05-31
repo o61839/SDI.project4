@@ -134,7 +134,24 @@ var myLibrary = function(){
 		var daysToNewJob = elapsedTime/millisecondsPerDay; 
 		var futureDays = Math.ceil(daysToNewJob); 
 		return futureDays;
-}; 
+	}; 
+
+	//Numbers (4)given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
+	var evalString = function(stringFour) {
+		if (isNaN(stringFour) === false) {
+			var number = eval(stringFour); 
+		} else {
+			var number = NaN; 
+		}
+		return number;  
+	};
+	
+	//Arrays(1)find the smallest value in an array that is greater than a given number
+	function getNextNumber(numberItems, value) {
+    for (var i=0; i < numberItems.length; i++)
+        if (numberItems[i] > value)
+            return numberItems[i];
+} 
 	
 	//return of the functions to be used outside of the library. 
 	return {
@@ -146,7 +163,8 @@ var myLibrary = function(){
 		"changeDecimal":	changeDecimal,
 		"numberMatch":		numberMatch,
 		"getYear":			getYear,
-		"getDays":			getDays
+		"getDays":			getDays, 
+		"evalString":		evalString
 	}
 }; // end library
 
@@ -165,39 +183,16 @@ console.log("This should have two decimal places " + newLib.changeDecimal(165.12
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(2, 4, .50));
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(20, 25, .50)); 
 console.log("How many years has it been? " + newLib.getYear(new Date(1977, 03, 17), new Date(2013, 04, 30)) + " years.");
-console.log("How many years has it been? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
-
+console.log("How many days until? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
+console.log("What number is this? " + newLib.evalString("15"));
+console.log("What number is this? " + newLib.evalString("We are alive!"));
 //**********
 
 
-//Numbers (4)
-
-
-//(4)given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
-//works
-var stringOne = "15 + 15"; 
-var stringTwo = "156243"; 
-console.log(eval(stringOne) + " This is the answer to Numbers Question 4. Try #1"); 
-console.log(eval(stringTwo.valueOf()) + " This is the answer to Numbers Question 4. Try #2"); 
-function evalString (stringThree) {
-	console.log(eval(stringThree)); 
-	return "This is the answer to Numbers Question 4 using a function"; 
-};
-function evalString2 (stringFour) {
-	if (isNaN(stringFour) == false) {
-		console.log(eval(stringFour)); 
-	} else {
-		console.log(isNaN(stringFour) + "ly this is not number."); 
-	}
-	return "This is the answer to Numbers Question 4 using a function & a conditional"; 
-};
-console.log(evalString("(25 + 5)/3")); 
-console.log(evalString2(54 + 45)); 
-console.log(evalString2("We are alive!")); 
 
 //arrays (3)
 
-//(1)find the smallest value in an array that is greater than a given number
+
 //works
 //function findNextValue (myNumbers, goalNumb) {}:
 var numberItems = [15, 25, 37, 26, 104, 8, 2]
@@ -206,11 +201,7 @@ numberItems.sort(function (a, b) {
 }); 
 console.log(numberItems);
 console.log("this is the first part of the answer to question 1 Arrays");
-function getNextNumber(numberItems, value) {
-    for (var i=0; i < numberItems.length; i++)
-        if (numberItems[i] > value)
-            return numberItems[i];
-} 
+
 console.log(getNextNumber(numberItems, 36)); 
 //should return 37
 console.log("this is the answer to question 1 Arrays"); 
