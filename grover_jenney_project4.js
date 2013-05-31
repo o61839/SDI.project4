@@ -99,13 +99,21 @@ var myLibrary = function(){
 		return newNewString; 
 	};
 	
+	//Numbers (1) Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
+	var changeDecimal = function (amount, decimal) {
+		var amount = amount.toFixed(decimal); 
+		return amount; 
+	};
+ 
+	
 	//return of the functions to be used outside of the library. 
 	return {
 		"checkPhoneNumber": checkPhoneNumber,
 		"checkEmail": 		checkEmail,
 		"isThisUrl": 		isThisUrl, 
 		"titleCase": 		titleCase, 
-		"findReplace":		findReplace
+		"findReplace":		findReplace,
+		"changeDecimal":	changeDecimal
 	}
 }; // end library
 
@@ -120,21 +128,11 @@ console.log("Is this a URL? " + newLib.isThisUrl("https://www.capitalone.com"));
 console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
 console.log("Does This Show Title Case? " + newLib.titleCase("I wish you the best!")); 
 console.log("Did this replace the connectors? " + newLib.findReplace("apple,orange,banana", ",", "/"));
-
+console.log("This should have two decimal places " + newLib.changeDecimal(165.123563, 2) + ".");
 //**********
 
 
 //Numbers (4)
-
-//(1) Format a number to use a specific number of decimal places, as for one: 2.1 -> 2.10
-//works
-var costOfShoes = 15.98761;
-console.log(costOfShoes.toFixed(2) + " This is answer to Numbers Question 1. Try #1"); 
-function dollarAmount(amount, decimal) {
-	console.log(amount.toFixed(decimal)); 
-	return "This is answer to Numbers Question 1. Try #2"; 
-};
-console.log(dollarAmount(165.123563, 2)); 
 
 //(2)fuzzy-match a number: is the number above or below a number within a certain percent? 
 //works
