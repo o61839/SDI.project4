@@ -136,7 +136,7 @@ var myLibrary = function(){
 		return futureDays;
 	}; 
 
-	//Numbers (4)given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
+	//Numbers (4) given a string version of a number such as "42", return the value as ann actual Number, such as 42. 
 	var evalString = function(stringFour) {
 		if (isNaN(stringFour) === false) {
 			var number = eval(stringFour); 
@@ -146,12 +146,18 @@ var myLibrary = function(){
 		return number;  
 	};
 	
-	//Arrays(1)find the smallest value in an array that is greater than a given number
-	function getNextNumber(numberItems, value) {
-    for (var i=0; i < numberItems.length; i++)
-        if (numberItems[i] > value)
-            return numberItems[i];
-} 
+	//Arrays (1) find the smallest value in an array that is greater than a given number
+	var nextNumber = function (numberItems, value){
+		var sortedItems = numberItems.sort(function (a, b) {
+			return (a-b); 
+		});
+		function getNextNumber(sortedItems, value) {
+    		for (var i=0; i < numberItems.length; i++)
+        		if (numberItems[i] > value)
+            		return numberItems[i];
+				} return numberItems[i];
+		} return numberItems[i];
+	};
 	
 	//return of the functions to be used outside of the library. 
 	return {
@@ -164,7 +170,8 @@ var myLibrary = function(){
 		"numberMatch":		numberMatch,
 		"getYear":			getYear,
 		"getDays":			getDays, 
-		"evalString":		evalString
+		"evalString":		evalString,
+		"nextNumber":		nextNumber
 	}
 }; // end library
 
@@ -186,26 +193,12 @@ console.log("How many years has it been? " + newLib.getYear(new Date(1977, 03, 1
 console.log("How many days until? " + newLib.getDays(new Date(2013, 05, 17), new Date(2013, 04, 30)) + " days to go.");
 console.log("What number is this? " + newLib.evalString("15"));
 console.log("What number is this? " + newLib.evalString("We are alive!"));
+console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
 //**********
 
 
 
 //arrays (3)
-
-
-//works
-//function findNextValue (myNumbers, goalNumb) {}:
-var numberItems = [15, 25, 37, 26, 104, 8, 2]
-numberItems.sort(function (a, b) {
-	return (a-b); 
-}); 
-console.log(numberItems);
-console.log("this is the first part of the answer to question 1 Arrays");
-
-console.log(getNextNumber(numberItems, 36)); 
-//should return 37
-console.log("this is the answer to question 1 Arrays"); 
-
 
 //(2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 //QUESTION: So I tried a new function. But now it is stopping when it hits the string. 

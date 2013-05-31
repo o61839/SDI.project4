@@ -198,7 +198,7 @@ console.log(evalString2("We are alive!"));
 var numberItems = [15, 25, 37, 26, 104, 8, 2]
 numberItems.sort(function (a, b) {
 	return (a-b); 
-}); 
+});
 console.log(numberItems);
 console.log("this is the first part of the answer to question 1 Arrays");
 function getNextNumber(numberItems, value) {
