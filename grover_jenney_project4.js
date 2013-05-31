@@ -117,7 +117,17 @@ var myLibrary = function(){
 			}
 		} return results;
 	};
- 
+	
+	//Numbers (3)find the number of hours or days difference between two dates
+	var getYear = function (datePast, todaysDate) {
+		var dateInPast = new Date(datePast); 
+		var dateCurrent = new Date(todaysDate); 
+		var elapsedTime = dateCurrent - dateInPast;
+		var millisecondsPerYear = 31536000000; 
+		var thisYear = elapsedTime/millisecondsPerYear; 
+		var years = thisYear.toFixed(2); 
+		return years;
+	}; 
 	
 	//return of the functions to be used outside of the library. 
 	return {
@@ -127,7 +137,8 @@ var myLibrary = function(){
 		"titleCase": 		titleCase, 
 		"findReplace":		findReplace,
 		"changeDecimal":	changeDecimal,
-		"numberMatch":		numberMatch
+		"numberMatch":		numberMatch,
+		"getYear":			getYear
 	}
 }; // end library
 
@@ -145,24 +156,13 @@ console.log("Did this replace the connectors? " + newLib.findReplace("apple,oran
 console.log("This should have two decimal places " + newLib.changeDecimal(165.123563, 2) + ".");
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(2, 4, .50));
 console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(20, 25, .50)); 
+console.log("How many years has it been? " + newLib.getYear((1977, 03, 17), (2013, 04, 30)));
+
 
 //**********
 
 
 //Numbers (4)
-
-//(3)find the number of hours or days difference between two dates
-//works
-var myBirthday = new Date(1977, 03, 17); //April 17, 1977
-var todaysDate = new Date(2013, 04, 30); //May 30, 2013
-function getAge(elapsedTime) {
-	var elapsedTime = todaysDate - myBirthday;
-	var millisecondsPerYear = 31536000000; 
-	var myAge = elapsedTime/millisecondsPerYear; 
-	console.log("I am " + myAge.toFixed(2) + " years old!"); 
-	return "This is the answer for Numbers Question 3 using a function. Try #1."
-}; 
-console.log(getAge()); 
 
 var myNewJob = new Date (2013, 05, 17); //June 17, 2013
 var todaysDate = new Date (2013, 04, 30); //May 30, 2013  
