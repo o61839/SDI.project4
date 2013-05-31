@@ -155,10 +155,10 @@ var myLibrary = function(){
 		function getNextNumber(sortedItems, value) {
     		for (var i=0; i < numberItems.length; i++)
         		if (numberItems[i] > value)
-            		return numberItems[i];
-				} return numberItems[i];
-		} return numberItems[i];
-	};*/
+            		var nextHighest = numberItems[i];
+				} 
+		} return nextHighest;
+	}*/
 	
 	//Arrays (2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 	var totalArray = function myTotalDogs(myDogs){
@@ -172,7 +172,6 @@ var myLibrary = function(){
 	
 	//arrays (3) given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
 	//this sorts items in an array 
-	//DOESN"T WOrk
 	var itemsOnTable = function (items, sortKey) {
 		var sortItems = items
 		sortItems.sort(function(a, b){
@@ -232,6 +231,19 @@ console.log("What number is this? " + newLib.evalString("We are alive!"));
 //console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
 console.log("What is the total of this array? " + newLib.totalArray([12, "15", 13, "Lab", 18]));
 console.log("Is this sorted? " + newLib.itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
-//should be {a:1}, {a:2}, {a:3}, {a:14}, {a:15}, {a:100}
 console.log(newLib.sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
  
+var numberItems = [15, 25, 37, 26, 104, 8, 2]
+numberItems.sort(function (a, b) {
+	return (a-b); 
+});
+console.log(numberItems);
+console.log("this is the first part of the answer to question 1 Arrays");
+function getNextNumber(numberItems, value) {
+    for (var i=0; i < numberItems.length; i++)
+        if (numberItems[i] > value)
+            return numberItems[i];
+} 
+console.log(getNextNumber(numberItems, 36)); 
+//should return 37
+console.log("this is the answer to question 1 Arrays");
