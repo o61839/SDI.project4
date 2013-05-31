@@ -147,13 +147,17 @@ var myLibrary = function(){
 	};
 	
 	//Arrays (1) find the smallest value in an array that is greater than a given number
-	var nextNumber = function (sortedItems, value) {
+	var nextNumber = function nextNumber(sortedItems, value) {
 		var values = []
 		for (var i=0; i < sortedItems.length; i++)
 			if (sortedItems[i] > value) {
 				values.push(sortedItems[i])
-			} return values;
+				values.sort (function (a, b) {
+				return (a-b);
+				});
+		} return values[0];
 	};
+
 	
 	//Arrays (2)find the total value of just the numbers in an array, even if some of the items are not numbers. 
 	var totalArray = function myTotalDogs(myDogs){
