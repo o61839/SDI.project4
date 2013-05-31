@@ -169,6 +169,26 @@ var myLibrary = function(){
  			}
  		} return total;
 	}; 
+	
+	//arrays (3) given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
+	//this sorts items in an array  
+	var itemsOnTable = function (items, sortKey) {
+		var sortItems = items
+		sortItems.sort(function(a, b){
+			return a[sortKey]-b[sortKey];
+		});
+		return sortItems
+	};
+
+	//this sorts an array of objects
+	var sortArray = function (inputItems, sortKey) {
+		var itemsSort = inputItems
+		itemsSort.sort(function(a, b) {
+			return a[sortKey] - b[sortKey];
+		});
+		return itemsSort
+	};
+
 
 	//return of the functions to be used outside of the library. 
 	return {
@@ -183,7 +203,9 @@ var myLibrary = function(){
 		"getDays":			getDays, 
 		"evalString":		evalString,
 		//"nextNumber":		nextNumber,
-		"totalArray":		totalArray
+		"totalArray":		totalArray,
+		"itemsOnTable":		itemsOnTable,
+		"sortArray":		sortArray
 	}
 }; // end library
 
@@ -207,47 +229,7 @@ console.log("What number is this? " + newLib.evalString("15"));
 console.log("What number is this? " + newLib.evalString("We are alive!"));
 //console.log("What number is next in line?" + newLib.nextNumber([15, 25, 37, 26, 104, 8, 2], 36));
 console.log("What is the total of this array? " + newLib.totalArray([12, "15", 13, "Lab", 18]));
-//**********
-
-
-
-//arrays (3) 
-
-//(3)given an array of objects and the name of a key, return the array sorted by the value of that key in each of the objects: "a" + [{a:2}, {a:3}, {a:1}] -> [{a:1}, {a:2}, {a:3}] 
-//this sorts items in an array  
-var itemsAnimals = ["dogs", "cats", "apples", "horses", "skinks", "pigs"]; 
-itemsAnimals.sort(); 
-/*itemsAnimals.sort(function (a, b) {
-	return (a-b); 
-}); */
-/*function sortAnimals(itemsAnimals) {
- 	var animalsList = itemsAnimals.sort(); 
- 	return animalsList; 
-};
-console.log(sortAnimals("dogs", "cats", "apples", "horses", "skinks", "pigs")); */
-console.log(itemsAnimals); 
-console.log("this is option 1 for question 3 of Arrays"); 
-//the above is not a function. below is a function but it doesn't sort. 
-var itemsOnTable = function (items, sortKey) {
-	var sortItems = items
-	sortItems.sort(function(a, b){
-	return a[sortKey]-b[sortKey];
-	});
-	return sortItems
-};
-console.log(itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
-
-
-//this sorts an array of objects
-var sortArray = function (inputItems, sortKey) {
-	var itemsSort = inputItems
-	
-	itemsSort.sort(function(a, b) {
-		return a[sortKey] - b[sortKey];
-	});
-	return itemsSort
-};
-
+console.log("Is this sorted? " + newLib.itemsOnTable(["paper", "pencil", "milk", "plate", "fork", "spoon", "card", "purse", "dog"], "a"));
 //should be {a:1}, {a:2}, {a:3}, {a:14}, {a:15}, {a:100}
-console.log(sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
-console.log("this is option 2 for question 3 of Arrays"); 
+console.log("Is this sorted? " + newLib.sortArray([{a:2}, {a:3}, {a:14}, {a:1}, {a:100}, {a:15}], "a"));
+ 
