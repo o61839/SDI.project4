@@ -104,6 +104,19 @@ var myLibrary = function(){
 		var amount = amount.toFixed(decimal); 
 		return amount; 
 	};
+	
+	//Numbers (2)fuzzy-match a number: is the number above or below a number within a certain percent? 
+	var numberMatch = function (numb1, numb2, numb3) {
+		if (numb1 < numb2) {
+			var differance = numb2 - numb1; 
+			var percentage = numb1 / numb2; 
+			if (percentage <= numb3) {
+				var results = true; 
+			} else {
+				var results = false;  
+			}
+		} return results;
+	};
  
 	
 	//return of the functions to be used outside of the library. 
@@ -113,7 +126,8 @@ var myLibrary = function(){
 		"isThisUrl": 		isThisUrl, 
 		"titleCase": 		titleCase, 
 		"findReplace":		findReplace,
-		"changeDecimal":	changeDecimal
+		"changeDecimal":	changeDecimal,
+		"numberMatch":		numberMatch
 	}
 }; // end library
 
@@ -129,28 +143,13 @@ console.log("Is this a URL? " + newLib.isThisUrl("google.com"));
 console.log("Does This Show Title Case? " + newLib.titleCase("I wish you the best!")); 
 console.log("Did this replace the connectors? " + newLib.findReplace("apple,orange,banana", ",", "/"));
 console.log("This should have two decimal places " + newLib.changeDecimal(165.123563, 2) + ".");
+console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(2, 4, .50));
+console.log("Is this a fuzzy match within 50%? " + newLib.numberMatch(20, 25, .50)); 
+
 //**********
 
 
 //Numbers (4)
-
-//(2)fuzzy-match a number: is the number above or below a number within a certain percent? 
-//works
-var fuzzyMatchTrio = [2, 4, 50]; 
-function numberMatch(numb1, numb2, numb3) {
-	if (numb1 < numb2) {
-		var differance = numb2 - numb1; 
-		var percentage = numb1 / numb2; 
-		if (percentage <= numb3) {
-			console.log(true); 
-		} else {
-			console.log(false); 
-			}
-		} return "This is answer to Numbers Question 2.";
-};
-console.log(numberMatch(2, 4, .50));
-console.log(numberMatch(20, 25, .50));   
-
 
 //(3)find the number of hours or days difference between two dates
 //works
